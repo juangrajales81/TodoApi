@@ -8,6 +8,16 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoContext>(opt =>
     opt.UseInMemoryDatabase("TodoList"));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "TestPolicy",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000")
+                    .WithMethods("GET", "POST", "PUT", "DELETE");
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,10 +27,14 @@ if (builder.Environment.IsDevelopment())
     
 }
 
+app.UseCors();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 app.Run();
