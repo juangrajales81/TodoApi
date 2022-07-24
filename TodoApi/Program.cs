@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 // Esta Línea de código la usaba temporalmente antes de usar una bd local
 //builder.Services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
 
+// Para usar la BD local llamada ToDoList
 builder.Services.AddDbContext<TodoContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("ToDoListConnection")));
 
 
@@ -20,6 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "TestPolicy",
         policy =>
         {
+            // Esto nos permite realizar las pruebas con la parte Front-End creada con React
             policy.WithOrigins("http://localhost:3000")
                     .WithMethods("GET", "POST", "PUT", "DELETE").WithHeaders("content-type", "Access-Control-Allow-Origin");
         });

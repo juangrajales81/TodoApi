@@ -13,12 +13,13 @@ namespace TodoApi.Data
                     DbContextOptions<TodoContext>>()))
             {
 
-                // Si ya existe TodoItems la BD ya ha sido creada
+                // Si ya existe TodoItems la BD ya ha sido creada y no agrega los registros.
                 if (context.TodoItems.Any())
                 {
                     return;
                 }
 
+                // Se insertan unos datos iniciales
                 var todoItems = new TodoItem[]
                 {
                     new TodoItem{Name="Ir de compras",IsComplete=false},
