@@ -36,7 +36,7 @@ namespace TodoApi.Controllers
         // GET: api/TodoItems/5
         [EnableCors("TestPolicy")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+        public async Task<ActionResult<TodoItem>> GetTodoItem(int id)
         {
           if (_context.TodoItems == null)
           {
@@ -56,7 +56,7 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [EnableCors("TestPolicy")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        public async Task<IActionResult> PutTodoItem(int id, TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
@@ -99,7 +99,7 @@ namespace TodoApi.Controllers
         // DELETE: api/TodoItems/5
         [EnableCors("TestPolicy")]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoItem(long id)
+        public async Task<IActionResult> DeleteTodoItem(int id)
         {
             if (_context.TodoItems == null)
             {
@@ -117,7 +117,7 @@ namespace TodoApi.Controllers
             return NoContent();
         }
 
-        private bool TodoItemExists(long id)
+        private bool TodoItemExists(int id)
         {
             return (_context.TodoItems?.Any(e => e.Id == id)).GetValueOrDefault();
         }
