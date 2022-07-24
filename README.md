@@ -6,6 +6,7 @@ Pasos para ejecutar la aplicación localmente:
 2. Crear en (localdb)\MSSQLLocalDB una BD local llamada `ToDoList`
 3. Crear una tabla llamada `TodoItems`
 
+``` sql
 USE ToDoList
 CREATE TABLE TodoItems (
 	id int NOT NULL IDENTITY(1, 1),
@@ -13,5 +14,6 @@ CREATE TABLE TodoItems (
     isComplete bit,
 	PRIMARY KEY (id)
 );
+```
 
 
