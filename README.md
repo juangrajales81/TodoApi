@@ -23,4 +23,4 @@ CREATE TABLE TodoItems (
 );
 ```
 
-4. Ejecutar con F5 y esperar que la aplicación abra el navegador con la ruta https://localhost:7126/api/todoitems.  Esta págna mostrará una información inicial  
+4. Ejecutar con F5 y esperar que la aplicación abra el navegador con la ruta https://localhost:7126/api/todoitems.  Esta página mostrará una información inicial, con los registros agregados por código.  
